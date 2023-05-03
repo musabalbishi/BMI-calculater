@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body class="container bg-secondary text-dark">
+    <div class="jumbotron">
+      <h1>Your BMI results</h1>
+      <p>
+        Body mass index (BMI) is a measure of body fat based on height and
+        weight that applies to adult men and women.
+      </p>
+    </div>
+    <div class="container">
+      <table class="table table-dark">
+        <thead class="thead-gray">
+          <tr>
+            <th scope="col">weight</th>
+            <th scope="col">height</th>
+            <th scope="col">BMI</th>
+            <th scope="col">status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><%= w %> kg</th>
+            <td><%= h %> cm</td>
+            <td><%= (bmi/0.0001).toFixed(1) %> Kg/m^2</td>
+            <td>
+              <% if(bmi <= 18.5){ %>
+              <h5>you are underweight😒</h5>
+              <% } else if(bmi >= 18.5 && bmi <= 24.9) {%>
+              <h5>you are normal👌</h5>
+              <% } else if(bmi >= 25 && bmi <= 29.9){ %>
+              <h5>you are overweight😢</h5>
+              <% }else{ %>
+              <h5>you are obese!!!😤💔💔</h5>
+              <% } %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
